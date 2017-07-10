@@ -10,5 +10,5 @@ module.exports = function(app) {
     app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json({limit: '50mb'}))
 	app.use(cors());
-    app.use(express.static(path.join(__dirname, '../public'), { maxAge: 0}))
+    app.use(express.static(path.join(__dirname, '../build'), { maxAge: 0}))
 }

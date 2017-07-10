@@ -5,8 +5,9 @@ node_modules
 bower_components
 
 #build files
-public/*.js
-public/*.css
-public/*/*.js
-public/*/*.css
-public/*.html
+build/*.js
+build/*.css
+build/*/*.js
+build/*/*.css
+build/*.html
+build/*.js.map
