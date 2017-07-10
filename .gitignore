@@ -1,0 +1,12 @@
+#node modules directory
+node_modules
+
+#bower
+bower_components
+
+#build files
+public/*.js
+public/*.css
+public/*/*.js
+public/*/*.css
+public/*.html
