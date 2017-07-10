@@ -3,11 +3,3 @@ node_modules
 
 #bower
 bower_components
-
-#build files
-build/*.js
-build/*.css
-build/*/*.js
-build/*/*.css
-build/*.html
-build/*.js.map
