@@ -32,5 +32,12 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
          colors: true
      },
      devtool: 'source-map',
-     plugins: [HtmlWebpackPluginConfig]
+     plugins: [
+        HtmlWebpackPluginConfig,
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        })
+    ]
  };
