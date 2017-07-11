@@ -25912,7 +25912,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var ubidots = {
     getTemperature: function getTemperature(cb) {
-        fetch("http://localhost:5000/api/v1/temperature").then(function (response) {
+        var endpoint = location.href || 'http://localhost:5000/';
+        fetch(endpoint + "api/v1/temperature").then(function (response) {
             return response.json();
         }).then(function (response) {
             return cb(response.data);
