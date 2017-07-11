@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './../sass/Home.scss'
 
 export default class Home extends Component {
     constructor(props) {
