@@ -23374,7 +23374,7 @@ var _Home = __webpack_require__(225);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _App = __webpack_require__(226);
+var _App = __webpack_require__(228);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -25790,7 +25790,11 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(227);
+__webpack_require__(226);
+
+var _ubidots = __webpack_require__(227);
+
+var _ubidots2 = _interopRequireDefault(_ubidots);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25814,7 +25818,11 @@ var Home = function (_Component) {
 
     _createClass(Home, [{
         key: 'componentDidMount',
-        value: function componentDidMount() {}
+        value: function componentDidMount() {
+            _ubidots2.default.getTemperature(function (data) {
+                debugger;
+            });
+        }
     }, {
         key: 'render',
         value: function render() {
@@ -25880,6 +25888,34 @@ exports.default = Home;
 
 /***/ }),
 /* 226 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var ubidots = {
+    getTemperature: function getTemperature() {
+
+        fetch("http://localhost:5000/api/v1/temperature").then(function (response) {
+            debugger;
+            return response;
+        });
+    }
+};
+
+exports.default = ubidots;
+
+/***/ }),
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25933,12 +25969,6 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

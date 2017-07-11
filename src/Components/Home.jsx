@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './../sass/Home.scss'
+import ubidots from './../api/ubidots.js'
 
 export default class Home extends Component {
     constructor(props) {
@@ -10,6 +11,9 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
+        ubidots.getTemperature((data) => {
+            debugger;
+        });
 
     }
 
