@@ -31,6 +31,7 @@ div.home {
       div.home .body .info-container .info {
         border: 1px solid black;
         flex: 1;
-        padding: 20px; }
+        padding: 20px;
+        margin: 20px; }
 
 /*# sourceMappingURL=styles.css.map*/

@@ -6,15 +6,18 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            temperatures: [],
+            lastTemp    : 0,
         }
     }
 
     componentDidMount() {
         ubidots.getTemperature((data) => {
-            debugger;
+            this.setState({
+                temperatures:   data.results,
+                lastTemp:       data.results[data.results.length - 1].value,
+            })
         });
-
     }
 
     render() {
@@ -28,13 +31,11 @@ export default class Home extends Component {
                         about
                     </div>
                     <div className='station-container'>
-                        station-container
                         <div className='station'>
-                            station
+                            Temperature: {this.state.lastTemp}˚C
                         </div>
                     </div>
                     <div className='info-container'>
-                        Info-container
                         <div className='info'>
                             Info
                         </div>

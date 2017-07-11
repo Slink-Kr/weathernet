@@ -25812,15 +25812,23 @@ var Home = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
-        _this.state = {};
+        _this.state = {
+            temperatures: [],
+            lastTemp: 0
+        };
         return _this;
     }
 
     _createClass(Home, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            var _this2 = this;
+
             _ubidots2.default.getTemperature(function (data) {
-                debugger;
+                _this2.setState({
+                    temperatures: data.results,
+                    lastTemp: data.results[data.results.length - 1].value
+                });
             });
         }
     }, {
@@ -25849,17 +25857,17 @@ var Home = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'station-container' },
-                        'station-container',
                         _react2.default.createElement(
                             'div',
                             { className: 'station' },
-                            'station'
+                            'Temperature: ',
+                            this.state.lastTemp,
+                            '\u02DAC'
                         )
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'info-container' },
-                        'Info-container',
                         _react2.default.createElement(
                             'div',
                             { className: 'info' },
@@ -25903,11 +25911,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var ubidots = {
-    getTemperature: function getTemperature() {
-
+    getTemperature: function getTemperature(cb) {
         fetch("http://localhost:5000/api/v1/temperature").then(function (response) {
-            debugger;
-            return response;
+            return response.json();
+        }).then(function (response) {
+            return cb(response.data);
         });
     }
 };
