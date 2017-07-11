@@ -10,6 +10,14 @@ export default class Home extends Component {
             lastTemp    : 0,
             humidities  : [],
             lastHum     : 0,
+            lights      : [],
+            lastLight   : 0,
+            dusts        : [],
+            lastDust    : 0,
+            rains        : [],
+            lastRain    : 0,
+            pressures    : [],
+            lastPressure: 0,
 
         }
     }
@@ -26,26 +34,44 @@ export default class Home extends Component {
         ubidots.getHumidity((data) => {
             debugger
             this.setState({
-                humidities :   data.results,
+                humidities:   data.results,
                 lastHum:       data.results[data.results.length - 1].value,
             })
         });
+
+        ubidots.getLight((data) => {
+            debugger
+            this.setState({
+                lights :   data.results,
+                lastLight:       data.results[data.results.length - 1].value,
+            })
+        });
+
+
     }
 
     render() {
         return (
             <div className='home'>
                 <div className='header'>
-                    <h1 className='title'>Home</h1>
+                    <h1 className='Weahthernet HCMC'>Weahthernet HCMC {"\n"} Mạng lưới trạm quan trắc thời tiết thành phố Hồ Chí Minh</h1>
                 </div>
                 <div className='body'>
                     <div className='about'>
                         about
                     </div>
                     <div className='station-container'>
-                        <div className='station'>
-                            Temperature: {this.state.lastTemp}˚C
-                            Humidity:    {this.state.lastHum}%
+                        <div className='station-Corona'>
+                            <div className='Temp'>
+                                Nhiệt độ: {this.state.lastTemp}˚C
+                            </div>
+                            <div className='Hum'>
+                                Độ ẩm không khí: {this.state.lastHum}%            
+                            </div>
+                            <div className='Light'>
+                                Light:       {this.state.lastLight}lux
+                            </div>
+                          
                         </div>
                     </div>
                     <div className='info-container'>
