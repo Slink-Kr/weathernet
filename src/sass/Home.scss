@@ -5,37 +5,50 @@ div.home {
     // width: 1366px;
     margin: auto;
     .header {
+
         padding: 40px;
-        border: 1px solid black;
+        border: 1px solid white;
+        background-color: #0095FF;
         text-align: center;
         margin-bottom: 20px;
         .title {
-            color: blue;
+            color: white;
         }
     }
     .body {
-        border: 1px solid black;
+        border: 1px solid #0095FF;
         .about {
-            border: 1px solid black;
+            border: 1px solid #0095FF;
             text-align: center;
             padding: 40px 0 40px 0;
         }
         .station-container {
-            border: 1px solid black;
+            border: 1px solid #0095FF;
             padding: 20px;
             display: flex;
-            .station {
-                border: 1px solid black;
-                flex: 1;
-                padding: 20px;
+
+            .station-Corona{
+                border: 1px solid blue;
+                .Temp {
+                    padding: 20px;
+                    width: 200px;
+                }
+                .Hum {
+                    padding: 20px;
+                    width: 200px;
+                }
+                .Light {
+                    padding: 20px;
+                    width: 200px;
+                }
             }
         }
         .info-container {
-            border: 1px solid black;
+            border: 1px solid #0095FF;
             padding: 20px;
             display: flex;
             .info {
-                border: 1px solid black;
+                border: 1px solid #0095FF;
                 flex: 1;
                 padding: 20px;
                 margin: 20px;

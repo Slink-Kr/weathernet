@@ -21,6 +21,18 @@ var ubidots = {
             debugger
             return cb(response.data);
         })
+    },
+
+     getLight: function(cb) {
+        
+        var endpoint = location.href || 'http://localhost:5000/'
+        fetch(endpoint + "api/v1/light").then((response) => {
+            debugger
+            return response.json();       
+        }).then((response) => {
+            debugger
+            return cb(response.data);
+        })
     }
 }
 

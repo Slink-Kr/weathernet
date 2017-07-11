@@ -25816,7 +25816,9 @@ var Home = function (_Component) {
             temperatures: [],
             lastTemp: 0,
             humidities: [],
-            lastHum: 0
+            lastHum: 0,
+            lights: [],
+            lastLight: 0
 
         };
         return _this;
@@ -25842,6 +25844,14 @@ var Home = function (_Component) {
                     lastHum: data.results[data.results.length - 1].value
                 });
             });
+
+            _ubidots2.default.getLight(function (data) {
+                debugger;
+                _this2.setState({
+                    lights: data.results,
+                    lastLight: data.results[data.results.length - 1].value
+                });
+            });
         }
     }, {
         key: 'render',
@@ -25854,7 +25864,7 @@ var Home = function (_Component) {
                     { className: 'header' },
                     _react2.default.createElement(
                         'h1',
-                        { className: 'title' },
+                        { className: 'Weahthernet HCMC' },
                         'Home'
                     )
                 ),
@@ -25871,12 +25881,28 @@ var Home = function (_Component) {
                         { className: 'station-container' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'station' },
-                            'Temperature: ',
-                            this.state.lastTemp,
-                            '\u02DAC Humidity:    ',
-                            this.state.lastHum,
-                            '%'
+                            { className: 'station-Corona' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Temp' },
+                                'Nhi\u1EC7t \u0111\u1ED9: ',
+                                this.state.lastTemp,
+                                '\u02DAC'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Hum' },
+                                '\u0110\u1ED9 \u1EA9m kh\xF4ng kh\xED: ',
+                                this.state.lastHum,
+                                '%'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Light' },
+                                'Light:       ',
+                                this.state.lastLight,
+                                'lux'
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -25941,6 +25967,18 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/humidity").then(function (response) {
+            debugger;
+            return response.json();
+        }).then(function (response) {
+            debugger;
+            return cb(response.data);
+        });
+    },
+
+    getLight: function getLight(cb) {
+
+        var endpoint = location.href || 'http://localhost:5000/';
+        fetch(endpoint + "api/v1/light").then(function (response) {
             debugger;
             return response.json();
         }).then(function (response) {
