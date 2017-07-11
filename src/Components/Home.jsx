@@ -8,14 +8,26 @@ export default class Home extends Component {
         this.state = {
             temperatures: [],
             lastTemp    : 0,
+            humidities  : [],
+            lastHum     : 0,
+
         }
     }
 
     componentDidMount() {
         ubidots.getTemperature((data) => {
+            debugger
             this.setState({
                 temperatures:   data.results,
                 lastTemp:       data.results[data.results.length - 1].value,
+            })
+        });
+
+        ubidots.getHumidity((data) => {
+            debugger
+            this.setState({
+                humidities :   data.results,
+                lastHum:       data.results[data.results.length - 1].value,
             })
         });
     }
@@ -33,6 +45,7 @@ export default class Home extends Component {
                     <div className='station-container'>
                         <div className='station'>
                             Temperature: {this.state.lastTemp}˚C
+                            Humidity:    {this.state.lasthum}%
                         </div>
                     </div>
                     <div className='info-container'>
