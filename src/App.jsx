@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react'
+import './sass/Home.scss'
 
-export default class App extends React.Component {
+export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello World!!!</h1>
+                {this.props.children}
             </div>
         )
     }

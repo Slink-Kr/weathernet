@@ -1,0 +1,44 @@
+div.home {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    // width: 1366px;
+    margin: auto;
+    .header {
+        padding: 40px;
+        border: 1px solid black;
+        text-align: center;
+        margin-bottom: 20px;
+        .title {
+            color: blue;
+        }
+    }
+    .body {
+        border: 1px solid black;
+        .about {
+            border: 1px solid black;
+            text-align: center;
+            padding: 40px 0 40px 0;
+        }
+        .station-container {
+            border: 1px solid black;
+            padding: 20px;
+            display: flex;
+            .station {
+                border: 1px solid black;
+                flex: 1;
+                padding: 20px;
+            }
+        }
+        .info-container {
+            border: 1px solid black;
+            padding: 20px;
+            display: flex;
+            .info {
+                border: 1px solid black;
+                flex: 1;
+                padding: 20px;
+            }
+        }
+    }
+}

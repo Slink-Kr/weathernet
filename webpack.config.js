@@ -8,7 +8,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 })
-     
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
  module.exports = {
      entry: './src/index.jsx',
      output: {
@@ -16,8 +17,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
          filename: 'app.bundle.js'
      },
      module: {
-         loaders: [
-             {
+        loaders: [
+            {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
@@ -25,19 +26,29 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
                     cacheDirectory: true,
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: /\.(css|scss)$/,
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader'),
             }
         ]
      },
+    watch: true,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    },
      stats: {
          colors: true
      },
      devtool: 'source-map',
      plugins: [
         HtmlWebpackPluginConfig,
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        })
+        new ExtractTextPlugin('styles.css'),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify('production')
+        //     }
+        // })
     ]
  };
