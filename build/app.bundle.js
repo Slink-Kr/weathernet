@@ -25895,21 +25895,21 @@ var Home = function (_Component) {
                                 { className: 'Temp' },
                                 'Nhi\u1EC7t \u0111\u1ED9: ',
                                 this.state.lastTemp,
-                                '\u02DAC'
+                                ' \u02DAC'
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'Hum' },
                                 '\u0110\u1ED9 \u1EA9m kh\xF4ng kh\xED: ',
                                 this.state.lastHum,
-                                '%'
+                                ' %'
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'Light' },
                                 'Light:       ',
                                 this.state.lastLight,
-                                'lux'
+                                ' lux'
                             )
                         )
                     ),

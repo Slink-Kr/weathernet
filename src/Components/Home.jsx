@@ -63,13 +63,13 @@ export default class Home extends Component {
                     <div className='station-container'>
                         <div className='station-Corona'>
                             <div className='Temp'>
-                                Nhiệt độ: {this.state.lastTemp}˚C
+                                Nhiệt độ: {this.state.lastTemp} ˚C
                             </div>
                             <div className='Hum'>
-                                Độ ẩm không khí: {this.state.lastHum}%            
+                                Độ ẩm không khí: {this.state.lastHum} %            
                             </div>
                             <div className='Light'>
-                                Light:       {this.state.lastLight}lux
+                                Light:       {this.state.lastLight} lux
                             </div>
                           
                         </div>
