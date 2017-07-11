@@ -26,22 +26,27 @@ div.home {
         border: 1px solid #0095FF; }
         div.home .body .station-container .station-Corona .Temp {
           padding: 20px;
-          width: 200px; }
+          width: 200px;
+          color: red; }
         div.home .body .station-container .station-Corona .Hum {
           padding: 20px;
-          width: 200px; }
+          width: 200px;
+          color: blue; }
         div.home .body .station-container .station-Corona .Light {
           padding: 20px;
-          width: 200px; }
+          width: 200px;
+          color: yellow; }
         div.home .body .station-container .station-Corona .Dust {
           padding: 20px;
           width: 200px; }
-        div.home .body .station-container .station-Corona .Hum {
+        div.home .body .station-container .station-Corona .Rain {
           padding: 20px;
-          width: 200px; }
-        div.home .body .station-container .station-Corona .Light {
+          width: 200px;
+          color: pink; }
+        div.home .body .station-container .station-Corona .Pressure {
           padding: 20px;
-          width: 200px; }
+          width: 200px;
+          color: grey; }
     div.home .body .info-container {
       border: 1px solid #0095FF;
       padding: 20px;

@@ -33,25 +33,30 @@ div.home {
                 .Temp {
                     padding: 20px;
                     width: 200px;
+                    color: red;
                 }
                 .Hum {
                     padding: 20px;
                     width: 200px;
+                    color: blue;
                 }
                 .Light {
                     padding: 20px;
                     width: 200px;
+                    color: yellow;
                 }.Dust {
                     padding: 20px;
                     width: 200px;
                 }
-                .Hum {
+                .Rain {
                     padding: 20px;
                     width: 200px;
+                    color: pink;
                 }
-                .Light {
+                .Pressure {
                     padding: 20px;
                     width: 200px;
+                    color: grey;
                 }
             }
         }

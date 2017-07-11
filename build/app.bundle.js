@@ -25858,30 +25858,6 @@ var Home = function (_Component) {
                     lastLight: data.results[data.results.length - 1].value
                 });
             });
-
-            _ubidots2.default.getDust(function (data) {
-                debugger;
-                _this2.setState({
-                    dusts: data.results,
-                    lastDust: data.results[data.results.length - 1].value
-                });
-            });
-
-            _ubidots2.default.getRain(function (data) {
-                debugger;
-                _this2.setState({
-                    rains: data.results,
-                    lastRain: data.results[data.results.length - 1].value
-                });
-            });
-
-            _ubidots2.default.getPressure(function (data) {
-                debugger;
-                _this2.setState({
-                    pressures: data.results,
-                    lastPressure: data.results[data.results.length - 1].value
-                });
-            });
         }
     }, {
         key: 'render',
@@ -25934,26 +25910,6 @@ var Home = function (_Component) {
                                 'Light:       ',
                                 this.state.lastLight,
                                 'lux'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'Dust' },
-                                'M\u1EADt \u0111\u1ED9 b\u1EE5i: ',
-                                this.state.lastDust,
-                                'mm3'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'Rain' },
-                                'M\u01B0a: ',
-                                this.state.lastRain
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'Pressure' },
-                                '\xC1p su\u1EA5t kh\xED quy\u1EC3n:',
-                                this.state.lastPressure,
-                                'Pascal'
                             )
                         )
                     ),
@@ -26031,42 +25987,6 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/light").then(function (response) {
-            debugger;
-            return response.json();
-        }).then(function (response) {
-            debugger;
-            return cb(response.data);
-        });
-    },
-
-    getDust: function getDust(cb) {
-
-        var endpoint = location.href || 'http://localhost:5000/';
-        fetch(endpoint + "api/v1/dust").then(function (response) {
-            debugger;
-            return response.json();
-        }).then(function (response) {
-            debugger;
-            return cb(response.data);
-        });
-    },
-
-    getRain: function getRain(cb) {
-
-        var endpoint = location.href || 'http://localhost:5000/';
-        fetch(endpoint + "api/v1/rain").then(function (response) {
-            debugger;
-            return response.json();
-        }).then(function (response) {
-            debugger;
-            return cb(response.data);
-        });
-    },
-
-    getPressure: function getPressure(cb) {
-
-        var endpoint = location.href || 'http://localhost:5000/';
-        fetch(endpoint + "api/v1/pressure").then(function (response) {
             debugger;
             return response.json();
         }).then(function (response) {

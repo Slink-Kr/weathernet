@@ -31,32 +31,5 @@ exports.getLight = function(req, res) {
     }); 
 }
 
-exports.getDust = function(req, res) {
-   client.auth(function () {
-        var dust = this.getVariable('592893fe7625424e2af220f9');
-        dust.getValues(function(err, data) {
-            res.json({data});
-        })
-    }); 
-}
 
-exports.getRain = function(req, res) {
-   client.auth(function () {
-        var rain = this.getVariable('5928e92e7625424e2b8e2d76');
-        rain.getValues(function(err, data) {
-            debugger
-            res.json({data});
-        })
-    }); 
-}
-
-exports.getPressure = function(req, res) {
-   client.auth(function () {
-        var pressure = this.getVariable('5925cfaa7625427b25ea8f55');
-        pressure.getValues(function(err, data) {
-            debugger
-            res.json({data});
-        })
-    }); 
-}
 
