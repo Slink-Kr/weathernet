@@ -24,7 +24,7 @@ exports.getHumidity = function(req, res) {
 exports.getLight = function(req, res) {
    client.auth(function () {
         var light = this.getVariable('59288c227625424e2af19fb9');
-        light.getValues(function(err, data) {
+        light.getValues(function(err, data) {11
             debugger
             res.json({data});
         })
