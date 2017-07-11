@@ -25875,7 +25875,7 @@ var Home = function (_Component) {
                             'Temperature: ',
                             this.state.lastTemp,
                             '\u02DAC Humidity:    ',
-                            this.state.lasthum,
+                            this.state.lastHum,
                             '%'
                         )
                     ),

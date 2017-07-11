@@ -45,7 +45,7 @@ export default class Home extends Component {
                     <div className='station-container'>
                         <div className='station'>
                             Temperature: {this.state.lastTemp}˚C
-                            Humidity:    {this.state.lasthum}%
+                            Humidity:    {this.state.lastHum}%
                         </div>
                     </div>
                     <div className='info-container'>
