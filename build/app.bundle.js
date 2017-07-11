@@ -25818,7 +25818,13 @@ var Home = function (_Component) {
             humidities: [],
             lastHum: 0,
             lights: [],
-            lastLight: 0
+            lastLight: 0,
+            dusts: [],
+            lastDust: 0,
+            rains: [],
+            lastRain: 0,
+            pressures: [],
+            lastPressure: 0
 
         };
         return _this;
@@ -25852,6 +25858,30 @@ var Home = function (_Component) {
                     lastLight: data.results[data.results.length - 1].value
                 });
             });
+
+            _ubidots2.default.getDust(function (data) {
+                debugger;
+                _this2.setState({
+                    dusts: data.results,
+                    lastDust: data.results[data.results.length - 1].value
+                });
+            });
+
+            _ubidots2.default.getRain(function (data) {
+                debugger;
+                _this2.setState({
+                    rains: data.results,
+                    lastRain: data.results[data.results.length - 1].value
+                });
+            });
+
+            _ubidots2.default.getPressure(function (data) {
+                debugger;
+                _this2.setState({
+                    pressures: data.results,
+                    lastPressure: data.results[data.results.length - 1].value
+                });
+            });
         }
     }, {
         key: 'render',
@@ -25865,7 +25895,9 @@ var Home = function (_Component) {
                     _react2.default.createElement(
                         'h1',
                         { className: 'Weahthernet HCMC' },
-                        'Home'
+                        'Weahthernet HCMC ',
+                        "\n",
+                        ' M\u1EA1ng l\u01B0\u1EDBi tr\u1EA1m quan tr\u1EAFc th\u1EDDi ti\u1EBFt th\xE0nh ph\u1ED1 H\u1ED3 Ch\xED Minh'
                     )
                 ),
                 _react2.default.createElement(
@@ -25902,6 +25934,26 @@ var Home = function (_Component) {
                                 'Light:       ',
                                 this.state.lastLight,
                                 'lux'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Dust' },
+                                'M\u1EADt \u0111\u1ED9 b\u1EE5i: ',
+                                this.state.lastDust,
+                                'mm3'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Rain' },
+                                'M\u01B0a: ',
+                                this.state.lastRain
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'Pressure' },
+                                '\xC1p su\u1EA5t kh\xED quy\u1EC3n:',
+                                this.state.lastPressure,
+                                'Pascal'
                             )
                         )
                     ),
@@ -25979,6 +26031,42 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/light").then(function (response) {
+            debugger;
+            return response.json();
+        }).then(function (response) {
+            debugger;
+            return cb(response.data);
+        });
+    },
+
+    getDust: function getDust(cb) {
+
+        var endpoint = location.href || 'http://localhost:5000/';
+        fetch(endpoint + "api/v1/dust").then(function (response) {
+            debugger;
+            return response.json();
+        }).then(function (response) {
+            debugger;
+            return cb(response.data);
+        });
+    },
+
+    getRain: function getRain(cb) {
+
+        var endpoint = location.href || 'http://localhost:5000/';
+        fetch(endpoint + "api/v1/rain").then(function (response) {
+            debugger;
+            return response.json();
+        }).then(function (response) {
+            debugger;
+            return cb(response.data);
+        });
+    },
+
+    getPressure: function getPressure(cb) {
+
+        var endpoint = location.href || 'http://localhost:5000/';
+        fetch(endpoint + "api/v1/pressure").then(function (response) {
             debugger;
             return response.json();
         }).then(function (response) {

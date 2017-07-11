@@ -8,6 +8,9 @@ module.exports = function(app) {
     router.get('/temperature' , ubidots.getTemperature);
     router.get('/humidity' , ubidots.getHumidity);
     router.get('/light' , ubidots.getLight);
+    router.get('/dust' , ubidots.getDust);
+    router.get('/rain' , ubidots.getRain);
+    router.get('/pressure' , ubidots.getPressure);
     app.use('/api/v1', router);
 }
 

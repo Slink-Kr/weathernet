@@ -10,8 +10,14 @@ export default class Home extends Component {
             lastTemp    : 0,
             humidities  : [],
             lastHum     : 0,
-            lights  : [],
-            lastLight     : 0,
+            lights      : [],
+            lastLight   : 0,
+            dusts        : [],
+            lastDust    : 0,
+            rains        : [],
+            lastRain    : 0,
+            pressures    : [],
+            lastPressure: 0,
 
         }
     }
@@ -40,13 +46,37 @@ export default class Home extends Component {
                 lastLight:       data.results[data.results.length - 1].value,
             })
         });
+
+        ubidots.getDust((data) => {
+            debugger
+            this.setState({
+                dusts :   data.results,
+                lastDust:       data.results[data.results.length - 1].value,
+            })
+        });
+
+        ubidots.getRain((data) => {
+            debugger
+            this.setState({
+                rains :   data.results,
+                lastRain:       data.results[data.results.length - 1].value,
+            })
+        });
+
+        ubidots.getPressure((data) => {
+            debugger
+            this.setState({
+                pressures :   data.results,
+                lastPressure:       data.results[data.results.length - 1].value,
+            })
+        });
     }
 
     render() {
         return (
             <div className='home'>
                 <div className='header'>
-                    <h1 className='Weahthernet HCMC'>Home</h1>
+                    <h1 className='Weahthernet HCMC'>Weahthernet HCMC {"\n"} Mạng lưới trạm quan trắc thời tiết thành phố Hồ Chí Minh</h1>
                 </div>
                 <div className='body'>
                     <div className='about'>
@@ -62,6 +92,15 @@ export default class Home extends Component {
                             </div>
                             <div className='Light'>
                                 Light:       {this.state.lastLight}lux
+                            </div>
+                            <div className='Dust'>
+                                Mật độ bụi: {this.state.lastDust}mm3
+                            </div>
+                            <div className='Rain'>
+                                Mưa: {this.state.lastRain}            
+                            </div>
+                            <div className='Pressure'>
+                                Áp suất khí quyển:{this.state.lastPressure}Pascal
                             </div>
                         </div>
                     </div>

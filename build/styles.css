@@ -8,7 +8,8 @@ div.home {
     border: 1px solid white;
     background-color: #0095FF;
     text-align: center;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    color: white; }
     div.home .header .title {
       color: white; }
   div.home .body {
@@ -22,7 +23,7 @@ div.home {
       padding: 20px;
       display: flex; }
       div.home .body .station-container .station-Corona {
-        border: 1px solid blue; }
+        border: 1px solid #0095FF; }
         div.home .body .station-container .station-Corona .Temp {
           padding: 20px;
           width: 200px; }
@@ -30,6 +31,15 @@ div.home {
           padding: 20px;
           width: 200px; }
         div.home .body .station-container .station-Corona .Light {
+          padding: 20px;
+          width: 200px; }
+        div.home .body .station-container .station-Corona .Dust {
+          padding: 20px;
+          width: 200px; }
+        div.home .body .station-container .station-Corona .Rain {
+          padding: 20px;
+          width: 200px; }
+        div.home .body .station-container .station-Corona .Pressure {
           padding: 20px;
           width: 200px; }
     div.home .body .info-container {

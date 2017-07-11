@@ -9,8 +9,9 @@ div.home {
         padding: 40px;
         border: 1px solid white;
         background-color: #0095FF;
-        text-align: center;
+        text-align: center; 
         margin-bottom: 20px;
+        color: white;
         .title {
             color: white;
         }
@@ -28,7 +29,7 @@ div.home {
             display: flex;
 
             .station-Corona{
-                border: 1px solid blue;
+                border: 1px solid #0095FF;
                 .Temp {
                     padding: 20px;
                     width: 200px;
@@ -38,6 +39,17 @@ div.home {
                     width: 200px;
                 }
                 .Light {
+                    padding: 20px;
+                    width: 200px;
+                }.Dust {
+                    padding: 20px;
+                    width: 200px;
+                }
+                .Rain {
+                    padding: 20px;
+                    width: 200px;
+                }
+                .Pressure {
                     padding: 20px;
                     width: 200px;
                 }
