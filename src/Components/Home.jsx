@@ -24,7 +24,6 @@ export default class Home extends Component {
 
     componentDidMount() {
         ubidots.getTemperature((data) => {
-            debugger
             this.setState({
                 temperatures:   data.results,
                 lastTemp:       data.results[data.results.length - 1].value,
@@ -32,7 +31,6 @@ export default class Home extends Component {
         });
 
         ubidots.getHumidity((data) => {
-            debugger
             this.setState({
                 humidities:   data.results,
                 lastHum:       data.results[data.results.length - 1].value,
@@ -40,7 +38,6 @@ export default class Home extends Component {
         });
 
         ubidots.getLight((data) => {
-            debugger
             this.setState({
                 lights :   data.results,
                 lastLight:       data.results[data.results.length - 1].value,
@@ -63,13 +60,13 @@ export default class Home extends Component {
                     <div className='station-container'>
                         <div className='station-Corona'>
                             <div className='Temp'>
-                                Nhiệt độ: {this.state.lastTemp} ˚C
+                                Nhiệt độ: {this.state.lastTemp || 'loading...'} ˚C
                             </div>
                             <div className='Hum'>
-                                Độ ẩm không khí: {this.state.lastHum} %            
+                                Độ ẩm không khí: {this.state.lastHum || 'loading...'} %            
                             </div>
                             <div className='Light'>
-                                Light:       {this.state.lastLight} lux
+                                Light:       {this.state.lastLight || 'loading...'} lux
                             </div>
                           
                         </div>

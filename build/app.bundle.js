@@ -25836,7 +25836,6 @@ var Home = function (_Component) {
             var _this2 = this;
 
             _ubidots2.default.getTemperature(function (data) {
-                debugger;
                 _this2.setState({
                     temperatures: data.results,
                     lastTemp: data.results[data.results.length - 1].value
@@ -25844,7 +25843,6 @@ var Home = function (_Component) {
             });
 
             _ubidots2.default.getHumidity(function (data) {
-                debugger;
                 _this2.setState({
                     humidities: data.results,
                     lastHum: data.results[data.results.length - 1].value
@@ -25852,7 +25850,6 @@ var Home = function (_Component) {
             });
 
             _ubidots2.default.getLight(function (data) {
-                debugger;
                 _this2.setState({
                     lights: data.results,
                     lastLight: data.results[data.results.length - 1].value
@@ -25894,21 +25891,21 @@ var Home = function (_Component) {
                                 'div',
                                 { className: 'Temp' },
                                 'Nhi\u1EC7t \u0111\u1ED9: ',
-                                this.state.lastTemp,
+                                this.state.lastTemp || 'loading...',
                                 ' \u02DAC'
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'Hum' },
                                 '\u0110\u1ED9 \u1EA9m kh\xF4ng kh\xED: ',
-                                this.state.lastHum,
+                                this.state.lastHum || 'loading...',
                                 ' %'
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'Light' },
                                 'Light:       ',
-                                this.state.lastLight,
+                                this.state.lastLight || 'loading...',
                                 ' lux'
                             )
                         )
@@ -25963,10 +25960,8 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/temperature").then(function (response) {
-            debugger;
             return response.json();
         }).then(function (response) {
-            debugger;
             return cb(response.data);
         });
     },
@@ -25975,10 +25970,8 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/humidity").then(function (response) {
-            debugger;
             return response.json();
         }).then(function (response) {
-            debugger;
             return cb(response.data);
         });
     },
@@ -25987,10 +25980,8 @@ var ubidots = {
 
         var endpoint = location.href || 'http://localhost:5000/';
         fetch(endpoint + "api/v1/light").then(function (response) {
-            debugger;
             return response.json();
         }).then(function (response) {
-            debugger;
             return cb(response.data);
         });
     }

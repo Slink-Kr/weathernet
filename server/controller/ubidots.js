@@ -15,7 +15,6 @@ exports.getHumidity = function(req, res) {
    client.auth(function () {
         var humidity = this.getVariable('5925c7b27625427b25ea1083');
         humidity.getValues(function(err, data) {
-            debugger
             res.json({data});
         })
     }); 
@@ -25,7 +24,6 @@ exports.getLight = function(req, res) {
    client.auth(function () {
         var light = this.getVariable('59288c227625424e2af19fb9');
         light.getValues(function(err, data) {11
-            debugger
             res.json({data});
         })
     }); 
